@@ -14,10 +14,10 @@
 
 /* Global Variables */
 :root {
-    --primary-color: #5F2191; /* Default palette */
-    --secondary-color: #C2A5DA;
-    --button-gradient-start: #5F2191;
-    --button-gradient-end: #C2A5DA;
+    --primary-color: #3A1345; /* Default palette */
+    --secondary-color: #FAABF7;
+    --button-gradient-start: #3A1345;
+    --button-gradient-end: #FAABF7;
     --text-color: #FFFFFF;
     --instagram-primary: #E1306C;
     --tiktok-primary: #010101;
@@ -39,12 +39,12 @@ html, body {
     height: 100%;
     width: 100%;
     place-items: center;
-    background: linear-gradient(375deg, #5F2191, #AD7BD6);
+    background: linear-gradient(375deg, var(--button-gradient-start), var(--button-gradient-end));
 }
 
 ::selection {
-    color: #ffffff;
-    background: #5F2191;
+    color: var(--text-color);
+    background: var(--button-gradient-start);
 }
 
 .wrapper {
@@ -60,7 +60,7 @@ html, body {
     height: 100%;
     width: 100%;
     padding: 0px;
-    background: linear-gradient(375deg, #000000, #AD7BD6);
+    background: linear-gradient(375deg, var(--button-gradient-start), var(--button-gradient-end));
     border-radius: 10px;
     border: 10px solid #ffffff;
     transform-style: preserve-3d;
@@ -109,7 +109,7 @@ html, body {
 
 .info {
     text-align: center;
-    color: #ffffff;
+    color: var(--text-color);
     margin-bottom: 0px; /* Add space between info and the next section */
 
 }
@@ -118,7 +118,7 @@ html, body {
     font-family: 'Cinzel', serif; /* Apply Cinzel for title */
     font-size: 30px;
     font-weight: 800;
-    color: #ffffff;
+    color: var(--text-color);
     margin-bottom: 20px; /* Add space between the title and paragraph */
 }
 
@@ -126,7 +126,7 @@ p {
     font-family: 'Playfair Display', serif; /* Apply Playfair Display for the paragraph */
     font-size: 20px;
     font-weight: 400;
-    color: #ffffff;
+    color: var(--text-color);
     margin-bottom: 10px;
 }
 
