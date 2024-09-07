@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Flip Card on Hover</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <!-- Add the luxury fonts from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+
+   
+
+/* Global Variables */
+:root {
+    --primary-color: #5F2191; /* Default palette */
+    --secondary-color: #C2A5DA;
+    --button-gradient-start: #5F2191;
+    --button-gradient-end: #C2A5DA;
+    --text-color: #FFFFFF;
+    --instagram-primary: #E1306C;
+    --tiktok-primary: #010101;
+    --facebook-primary: #1877F2;
+    --whatsapp-primary: #25D366;
+    --location-primary: #FF5722;
+    --save-primary: #42DC6B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', serif; /* Apply Playfair Display as default font */
+}
+
+html, body {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    background: linear-gradient(375deg, #5F2191, #AD7BD6);
+}
+
+::selection {
+    color: #fff;
+    background: #5F2191;
+}
+
+.wrapper {
+    height: 500px;
+    width: 350px;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.card {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 5px;
+    background: linear-gradient(375deg, #000000, #AD7BD6);
+    border-radius: 10px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+    transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+}
+
+.wrapper:hover .front-face {
+    transform: rotateY(-180deg);
+}
+
+.wrapper:hover .back-face {
+    transform: rotateY(0deg);
+}
+
+.card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.back-face {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    transform: rotateY(180deg);
+    transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+    padding: 20px; /* Add padding for more space around the content */
+
+}
+
+.back-face img {
+    height: 150px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 50%;
+    background: linear-gradient(375deg, #FFFFFF, #FFFFFF);
+    margin-bottom: 0px; /* Add margin below the image */
+
+}
+
+.info {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 0px; /* Add space between info and the next section */
+
+}
+
+.title {
+    font-family: 'Cinzel', serif; /* Apply Cinzel for title */
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 20px; /* Add space between the title and paragraph */
+}
+
+p {
+    font-family: 'Playfair Display', serif; /* Apply Playfair Display for the paragraph */
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.back-face ul {
+    display: flex;
+    padding: 0;
+    list-style: none;
+    justify-content: center;
+    margin-top: 0px; /* Add space above the social media icons */
+
+}
+
+.back-face ul li {
+    margin: 0 0px; /* Add space between social media icons */
+}
+
+.back-face ul a {
+    display: block;
+    height: 40px;
+    width: 40px;
+    color: var(--text-color);
+    text-align: center;
+    margin: 0 5px;
+    line-height: 40px;
+    border: 0px solid transparent;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--button-gradient-start), var(--button-gradient-end));
+    text-decoration: none;
+}
+
+.back-face ul a:hover {
+    color: var(--text-color);
+    border: 2px solid var(--text-color);
+    background: linear-gradient(135deg, var(--button-gradient-end), var(--button-gradient-start));
+}
+
+/* Specific hover colors for each application */
+.instagram:hover {
+    --button-gradient-start: var(--instagram-primary);
+    --button-gradient-end: var(--instagram-primary);
+}
+
+.tiktok:hover {
+    --button-gradient-start: var(--tiktok-primary);
+    --button-gradient-end: var(--tiktok-primary);
+}
+
+.facebook:hover {
+    --button-gradient-start: var(--facebook-primary);
+    --button-gradient-end: var(--facebook-primary);
+}
+
+.whatsapp:hover {
+    --button-gradient-start: var(--whatsapp-primary);
+    --button-gradient-end: var(--whatsapp-primary);
+}
+
+.location:hover {
+    --button-gradient-start: var(--location-primary);
+    --button-gradient-end: var(--location-primary);
+}
+
+.save:hover {
+    --button-gradient-start: var(--save-primary);
+    --button-gradient-end: var(--save-primary);
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card front-face">
+      <img src="https://i.imgur.com/pBO1aWj.jpg" alt="Front Image">
+    </div>
+    <div class="card back-face">
+      <img src="https://i.imgur.com/pBO1aWj.jpg" alt="Back Image">
+      <div class="info">
+        <div class="title">Roses Passion</div>
+        <p>Make your event more beautiful with unforgettable moments</p>
+      </div>
+      <ul>
+        <li><a href="https://www.facebook.com/profile.php?id=100067756240596&mibextid=LQQJ4d" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
+        <li><a href="https://www.tiktok.com/@roses.passion" target="_blank" class="tiktok"><i class="fab fa-tiktok"></i></a></li>
+        <li><a href="https://www.instagram.com/rosespassio.n/" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a></li>
+        <li><a href="https://wa.me/972593828851" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
+        <li><a href="https://maps.app.goo.gl/2ZXd3VdLb434odqe6" target="_blank" class="location"><i class="fas fa-map-marker-alt"></i></a></li>
+        <li><a href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3ARoses%20Passion%0AN%3APassion%3BRoses%3B%3B%3B%0ATEL%3BTYPE%3DCELL%3A%2B972593828851%0AEND%3AVCARD" download="RosesPassion.vcf" class="save"><i class="fas fa-address-book"></i></a></li>
+      </ul>
+      
+    </div>
+  </div>
+</body>
+</html>
